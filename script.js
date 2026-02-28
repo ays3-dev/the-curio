@@ -1,4 +1,4 @@
-const GEMINI_API_KEY = 'AIzaSyAGhqksyh7ZuwiN3rZF4tyu1_gMM7zL0ZA';
+const GEMINI_API_KEY = 'API_KEY_PLACEHOLDER';
 
 const searchInput = document.getElementById('search-input');
 const searchIcon = document.getElementById('search-icon');
@@ -694,4 +694,5 @@ darkToggle.addEventListener('click', () => {
         darkToggle.innerText = 'Dark Mode';
         localStorage.setItem('theme', 'light'); 
     }
+
 });
