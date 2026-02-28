@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About | The Curio</title>
+    <link rel="icon" type="image/x-icon" href="https://kaplumbagadeden.neocities.org/media/rabbit_light.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+   <style>
+   
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    }
+    
+    *, *::before, *::after {
+    box-sizing: border-box;
+}
+    
+    :root {
+        --full-gradient: linear-gradient(90deg, #4facfe 0%, #a29bfe 25%, #f78fb3 50%, #feca57 75%, #ffda79 100%);
+        --dark-text: #1a1e26;
+        --subtle-text: #64748b;
+        --light-bg: #ffffff;
+    }
+
+    body {
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+}
+
+.master-container {
+    width: 1497px; 
+    margin: 0 auto;
+    position: relative; 
+    background-color: transparent; 
+}
+    
+    .main-gradient-text {
+    background: var(--full-gradient);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    background-clip: text;
+    display: inline-block; 
+}
+
+    .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+#auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--dark-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+.sign-up-btn {
+    background: var(--full-gradient);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo {
+    transform: scale(1.4);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+    color: #1a1e26;
+    font-size: 0.95rem;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.user-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.nav-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.nav-avatar:hover {
+    transform: scale(1.08);
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.dropdown {
+    position: absolute;
+    right: 0;
+    top: 55px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.dropdown div {
+    padding: 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.dropdown div:hover {
+    background: #f1f5f9;
+}
+
+.auth-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 30, 38, 0.8);
+    display: none; 
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    box-sizing: border-box;
+}
+
+.auth-content {
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 20px;
+    width: 320px;
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    position: relative;
+    box-sizing: border-box;
+}
+
+.auth-content h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    background: var(--full-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+        box-sizing: border-box;
+}
+
+.auth-content input {
+    width: 100%;
+    padding: 10px 14px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.auth-content input:focus {
+    border-color: #a29bfe;
+}
+
+#auth-submit {
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 3px;
+    border: none;
+    border-radius: 12px;
+    background: var(--full-gradient);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#auth-submit:hover {
+    transform: scale(1.05);
+}
+
+#auth-toggle-text {
+    font-size: 0.9rem;
+    margin-top: 12px;
+    color: var(--subtle-text);
+}
+
+#auth-toggle-text span {
+    color: var(--dark-text);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.auth-error {
+    color: #ff4d4f;
+    font-size: 0.85rem;
+    margin-top: 8px;
+}
+
+.password-container {
+    position: relative; 
+    width: 100%;
+    display: flex; 
+    align-items: center;
+}
+
+.password-container input {
+    width: 100%;
+    padding: 12px 45px 12px 14px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.toggle-pw {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    z-index: 10; 
+    font-size: 1.2rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b; 
+}
+
+.toggle-pw:focus {
+    outline: none;
+}
+
+.pfp-upload-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.pfp-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #a29bfe;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.pfp-preview:hover {
+    transform: scale(1.05);
+    border-color: #4facfe;
+}
+
+.pfp-label {
+    font-size: 0.85rem;
+    color: var(--subtle-text);
+    cursor: pointer;
+}
+
+    .about-wrapper {
+        position: relative;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 40px 20px 40px;
+    }
+
+    .info-section {
+        display: flex;
+        align-items: flex-start;
+        gap: 60px;
+        padding: 60px 0; 
+    }
+
+    .glass-stats {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        border: 1px solid #e2e8f0;
+        border-radius: 30px; 
+        display: flex;
+        justify-content: space-around;
+        padding: 30px;
+        margin: 20px auto 60px auto; 
+        width: 100%;
+    }
+
+    .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .bento-item {
+        padding: 30px;
+        background: #ffffff;
+        border-radius: 24px;
+        border: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+    }
+
+body.dark-mode {
+    background-color: #0f172a; 
+    color: #f1f5f9;
+}
+
+body.dark-mode .nav-links a, 
+body.dark-mode .logo,
+body.dark-mode footer,
+body.dark-mode #auth-toggle-text span { 
+    color: #f1f5f9 !important; 
+}
+
+body.dark-mode p, 
+body.dark-mode .pfp-label,
+body.dark-mode #auth-toggle-text { 
+    color: #94a3b8 !important; 
+}
+
+body.dark-mode .dropdown, 
+body.dark-mode .bento-item, 
+body.dark-mode .auth-content,
+body.dark-mode section div[style*="background: white"], 
+body.dark-mode div[style*="background: #fafafa"] {   
+    background-color: #1e293b !important; 
+    color: #f1f5f9 !important; 
+    border-color: #334155 !important;
+}
+
+body.dark-mode .glass-stats {
+    background: rgba(30, 41, 59, 0.7) !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode .glass-stats div {
+    border-left-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark-mode div[style*="background: #f8fafc"],
+body.dark-mode div[style*="background: #f1f5f9"] {
+    background-color: #0f172a !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode .auth-content input {
+    background-color: #0f172a;
+    border-color: #334155;
+    color: white;
+}
+
+body.dark-mode #forgot-pw-text {
+    color: #94a3b8 !important;
+}
+
+.main-footer {
+    margin-top: 100px;
+    padding: 40px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--subtle-text);
+    font-size: 0.9rem;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-link {
+    color: var(--subtle-text);
+    transition: color 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.footer-link:hover {
+    color: #a29bfe;
+    transform: translateY(-2px);
+}
+
+.contact-text {
+    font-weight: 600;
+    margin-left: 5px;
+    color: var(--dark-text);
+}
+
+body.dark-mode .main-footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .contact-text {
+    color: #f1f5f9;
+}
+
+   @media (max-width: 768px) {
+    body {
+        padding: 0 15px;
+    }
+
+    .navbar {
+        padding: 20px 0;
+        justify-content: space-between; 
+        flex-direction: row; 
+    }
+
+    .logo {
+        transform: scale(1.1); 
+    }
+
+    .nav-links {
+        gap: 15px; 
+    }
+
+    .nav-links a, .sign-up-btn {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+
+    .info-section {
+        flex-direction: column-reverse; 
+        gap: 30px;
+        text-align: center;
+        padding: 40px 0;
+    }
+
+    .info-content h2.main-gradient-text {
+        font-size: 2.2rem !important; 
+    }
+
+    .info-content p {
+        margin: 0 auto;
+        font-size: 1rem;
+    }
+
+    .info-content img {
+        width: 220px !important;
+        margin: 0 auto;
+    }
+
+    .bento-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+
+    .bento-item {
+        grid-row: auto !important;
+        grid-column: auto !important;
+        height: auto !important; 
+        padding: 20px !important; 
+    }
+
+    .bento-item div[style*="font-family: monospace"] {
+        font-size: 9px !important; 
+        overflow-x: auto; 
+        padding: 10px !important;
+    }
+
+    .bento-item div[style*="border-left: 2px solid"] {
+        margin: 15px 0 !important;
+        font-size: 0.75rem !important;
+    }
+
+    .glass-stats { 
+        flex-direction: column; 
+        gap: 20px; 
+        padding: 20px;
+    }
+    
+    .glass-stats div { 
+        border-left: none !important; 
+        padding-left: 0 !important; 
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        padding-bottom: 15px;
+    }
+
+    section[style*="display: flex"] {
+        flex-direction: column !important;
+        text-align: center;
+        gap: 30px !important;
+    }
+
+    .main-footer {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .master-container {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+	<div class="master-container">
+    <div class="about-wrapper">
+        <div class="bg-glow"></div>
+
+        <header class="navbar">
+            <div class="logo">
+                <img src="https://kaplumbagadeden.neocities.org/media/rabbit_light.png" class="logo-icon">
+                <span class="logo-text">The Curio</span>
+            </div>
+<nav class="nav-links">      
+    <a href="index.html">Home</a>
+
+    <div id="auth-buttons" class="auth-group">
+        <a href="#" id="login-btn">Login</a>
+        <button class="sign-up-btn" id="signup-btn">Sign Up</button>
+    </div>
+
+    <div id="user-menu" class="user-menu hidden">
+        <img id="nav-avatar" class="nav-avatar" src="" alt="User Avatar">
+        <div id="dropdown" class="dropdown hidden">
+            <div id="change-pfp">Change PFP</div>
+            <div id="dark-toggle">Dark Theme</div>
+            <div id="logout-btn">Log Out</div>
+        </div>
+    </div>
+</nav>
+        </header>
+
+        <section class="info-section"> 
+            <div class="info-content" style="flex: 1.2;">
+                <h2 class="main-gradient-text" style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 25px; margin-top: 0;">
+                    Digital Archaeology <br> for the Curious.
+                </h2>
+                <p style="font-size: 1.1rem; max-width: 500px; color: #64748b;">
+                    The Curio is an advanced data-visualization and discovery engine built to navigate the deep "Rabbit Holes" of the web. 
+                </p>
+                <div style="margin-top: 40px;">
+                    <img src="https://kaplumbagadeden.neocities.org/media/rabbithole.png" alt="Illustration" style="width: 320px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));">
+                </div>
+            </div>
+
+            <div class="faq-column" style="flex: 1; width: 100%;">
+                <h3 class="main-gradient-text" style="margin-bottom: 25px; font-size: 1.5rem; margin-top: 15px;">F.A.Q</h3>
+                <details class="bento-item" style="margin-bottom: 15px;">
+                    <summary>Why use The Curio?</summary>
+                    <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">Standard algorithms prioritize SEO. We prioritize the obscure, the rare, and the authentic connections between topics.</p>
+                </details>
+                <details class="bento-item" style="margin-bottom: 15px;">
+                    <summary>Is this just another search wrapper?</summary>
+                    <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">No. The Curio uses a custom-built relational logic engine. It doesn't just find links; it builds a visual map of how ideas, artifacts, and histories are secretly intertwined.</p>
+                </details>
+                <details class="bento-item">
+                    <summary>How do I start a "Dig"?</summary>
+                    <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">Simply type any topic on the homepage. Our custom layout engine handles the cross-referencing for you.</p>
+                </details>
+            </div>
+        </section>
+
+        <div class="glass-stats">
+            <div style="text-align: center;">
+                <div style="font-weight: bold; font-size: 1.5rem; color: #4facfe;">0%</div>
+                <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Tracking Ads</div>
+            </div>
+            <div style="text-align: center; border-left: 1px solid rgba(0,0,0,0.1); padding-left: 40px;">
+                <div style="font-weight: bold; font-size: 1.5rem; color: #a29bfe;">Hand-Coded</div>
+                <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Architecture</div>
+            </div>
+            <div style="text-align: center; border-left: 1px solid rgba(0,0,0,0.1); padding-left: 40px;">
+                <div style="font-weight: bold; font-size: 1.5rem; color: #f78fb3;">Fast</div>
+                <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Zero Bloat</div>
+            </div>
+        </div>
+        
+        <section style="display: flex; align-items: center; gap: 50px; padding: 60px 0; border-top: 1px solid rgba(0,0,0,0.05);">
+            <div style="flex: 1;">
+                <h3 class="main-gradient-text" style="font-size: 2rem;">Adaptive Interface</h3>
+                <p style="color: #64748b; margin-top: 15px; line-height: 1.6;">
+                    The Curio respects your environment. Shifts its entire color palette—from deep slate blues to crisp gallery whites.
+                </p>
+            </div>
+            <div style="flex: 1; background: #0f172a; padding: 20px; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); border: 4px solid #1e293b;">
+                <img src="https://kaplumbagadeden.neocities.org/media/thecurio_dark.png" alt="Dark Mode Search" style="width: 100%; border-radius: 12px;">
+            </div>
+        </section>
+
+        <section style="display: flex; align-items: center; gap: 50px; padding: 60px 0; flex-direction: row-reverse;">
+            <div style="flex: 1;">
+                <h3 class="main-gradient-text" style="font-size: 2rem;">Visual Archaeology</h3>
+                <p style="color: #64748b; margin-top: 15px; line-height: 1.6;">
+                    Found an artifact but don't have the words? Upload any image to begin a visual search.
+                </p>
+            </div>
+            <div style="flex: 1; text-align: center; background: white; padding: 40px; border-radius: 24px; border: 1px solid #e2e8f0; position: relative; overflow: hidden;">
+                <div style="background: #f8fafc; padding: 15px; border-radius: 50px; border: 1px solid #4facfe; display: flex; align-items: center; justify-content: space-between;">
+                    <span style="color: #94a3b8; margin-left: 10px;">Analyzing artifact.jpg...</span>
+                    <div style="display: flex; gap: 10px;"><span>📸</span><span>🔍</span></div>
+                </div>
+                <div style="height: 2px; width: 80%; background: #4facfe; position: absolute; top: 50%; left: 10%; animation: scan 2s infinite ease-in-out;"></div>
+            </div>
+        </section>
+<div class="bento-grid">
+            
+            <div class="bento-item" style="grid-row: span 2; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; position: relative;">
+                <div>
+        <div style="background: var(--full-gradient); height: 5px; width: 40px; border-radius: 10px; margin-bottom: 20px;"></div>
+        <h4 style="font-size: 1.2rem;">Modular Architecture</h4>
+        <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 10px;">A scalable CSS architecture designed for high-performance theme switching.</p>
+    </div>
+
+    <div style="margin: 25px 0; padding-left: 10px; border-left: 2px solid #e2e8f0; font-size: 0.8rem; color: #94a3b8; line-height: 2;">
+        <div style="color: #4facfe;">📁 src/</div>
+        <div style="padding-left: 15px;">📁 components/</div>
+        <div style="padding-left: 15px;">📁 themes/</div>
+        <div style="padding-left: 30px; color: #a29bfe;">📄 dark.css</div>
+        <div style="padding-left: 30px; color: #f78fb3;">📄 light.css</div>
+        <div style="padding-left: 15px;">📄 main.js</div>
+    </div>
+
+    <div style="margin-top: auto; background: #f1f5f9; border-radius: 12px; padding: 15px; border: 1px solid #e2e8f0; font-family: monospace; font-size: 10px; color: #94a3b8; line-height: 1.5;">
+        <div style="display: flex; gap: 5px; margin-bottom: 10px;">
+            <div style="width: 8px; height: 8px; border-radius: 50%; background: #ff5f56;"></div>
+            <div style="width: 8px; height: 8px; border-radius: 50%; background: #ffbd2e;"></div>
+            <div style="width: 8px; height: 8px; border-radius: 50%; background: #27c93f;"></div>
+        </div>
+        <span style="color: #a29bfe;">.curio-root</span> {<br>
+        &nbsp;&nbsp;display: <span style="color: #4facfe;">grid</span>;<br>
+        &nbsp;&nbsp;gap: <span style="color: #f78fb3;">var(--fluid-gap)</span>;<br>
+        &nbsp;&nbsp;theme: <span style="color: #feca57;">active</span>;<br>
+        }
+    </div>
+</div>
+            <div class="bento-item">
+                <h4 style="color: #4facfe;">UI Performance</h4>
+                <p style="font-size: 0.85rem; opacity: 0.7;">Engineered with vanilla JavaScript.</p>
+            </div>
+            <div class="bento-item">
+                <h4 style="color: #f78fb3;">State Management</h4>
+                <p style="font-size: 0.85rem; opacity: 0.7;">Robust mock-authentication system.</p>
+            </div>
+            <div class="bento-item" style="grid-column: span 2; padding: 0; overflow: hidden; display: flex; flex-direction: column; background: #fafafa; border: 1px solid #e2e8f0;">
+                <div style="padding: 25px 25px 10px 25px;">
+                    <h4 class="main-gradient-text">Interactive Discovery Engine</h4>
+                </div>
+                <div style="margin-top: auto; padding: 20px;">
+                    <img src="https://kaplumbagadeden.neocities.org/media/thecurio.png" style="width: 100%; border-radius:12px; border:1px solid #ddd;">
+                </div>
+            </div>
+        </div>
+
+<footer class="main-footer">
+    <div class="footer-left">
+        <p>© 2026 The Curio. All rights reserved.</p>
+    </div>
+    <div class="footer-right">
+        <a href="mailto:yaraysenaz@gmail.com" class="footer-link" title="Email Me">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </a>
+        <a href="https://github.com/ays3-dev" class="footer-link" title="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        </a>
+    </div>
+</footer>
+
+    </div>
+
+ <div id="auth-modal" class="auth-modal hidden">
+  <div class="auth-content">
+      <h2 id="auth-title">Sign Up</h2>
+      <div class="pfp-upload-container">
+    <img id="pfp-preview" src="https://nekoweb.org/api/files/get?pathname=%2Fmedia%2FUpload-Icon-Logo-Transparent-Background.png&site=kaplumbagadeden" alt="Profile Preview" class="pfp-preview">
+    <label for="pfp-input" class="pfp-label">Upload Profile Picture</label>
+    <input type="file" id="pfp-input" accept="image/*" style="display:none;">
+</div>
+      <input id="username-input" type="text" placeholder="E-mail">
+      <div class="password-container">
+    <input id="password-input" type="password" placeholder="Password">
+    <button type="button" class="toggle-pw" aria-label="Show/Hide Password">
+        <span class="eye-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                <line x1="1" y1="1" x2="23" y2="23"></line>
+            </svg>
+        </span>
+    </button>
+</div>
+
+<p id="forgot-pw-text" style="font-size: 0.8rem; font-weight: 600; text-align: right; margin-top: -10px; cursor: pointer; color: #64748b;">
+    Forgot Password?
+</p>
+
+      <button id="auth-submit">Submit</button>
+      <p id="auth-toggle-text">
+          Already have an account? <span id="toggle-auth">Log In</span>
+      </p>
+      <p id="auth-error" class="auth-error"></p>
+  </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="auth.js"></script>
+    
+    <script>
+    const darkToggle = document.getElementById('dark-toggle');
+
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    darkToggle.innerText = 'Light Mode';
+}
+
+darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    
+    if (document.body.classList.contains('dark-mode')) {
+        darkToggle.innerText = 'Light Mode';
+        localStorage.setItem('theme', 'dark'); 
+    } else {
+        darkToggle.innerText = 'Dark Mode';
+        localStorage.setItem('theme', 'light'); 
+    }
+});
+</script>
+</div>
+</body>
+</html>
