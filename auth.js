@@ -1,5 +1,5 @@
-const SUPABASE_URL = 'https://zcbrmfbmvkpiboaskhxq.supabase.co'; 
-const SUPABASE_ANON_KEY = 'sb_publishable_wCknDaVRxiyvX3E6W_8rbw_nr9B6YU7';
+const SUPABASE_URL = 'SUPABASE_URL_PLACEHOLDER'; 
+const SUPABASE_ANON_KEY = 'SUPABASE_ANON_KEY_PLACEHOLDER';
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const changePfpInput = document.createElement('input');
@@ -287,3 +287,4 @@ if (forgotPwBtn) {
         }
     };
 }
+
