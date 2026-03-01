@@ -2,7 +2,7 @@
 
 **The Curio** is a hand-coded, high-fidelity search platform designed to bypass conventional search results in favor of obscure, rare, and “rabbit-hole” knowledge. It leverages AI (Google Gemini API) to restructure factual data into thematic clusters, encouraging deeper exploration of niche topics.
 
-🌐 [Live Demo](https://thecurio.netlify.app/)
+🌐 [**Live Demo**](https://thecurio.netlify.app/)
 
 ---
 
@@ -31,9 +31,8 @@
 
 ├── media/ # Hand-drawn character art & custom UI icons
 ├── auth.js # Supabase authentication & password recovery logic
-├── script.js # Core search engine & API integration
+├── script.js # Core search engine & API integration + Dark/Light mode toggle management
 ├── style.css # Custom translucent UI & responsive layouts
-├── theme.js # Dark/Light mode toggle management
 └── index.html # Main application entry point
 
 
