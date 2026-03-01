@@ -28,15 +28,13 @@ const dropdown = document.getElementById('dropdown');
 const logoutBtn = document.getElementById('logout-btn');
 const darkToggleBtn = document.getElementById('dark-toggle');
 const changePfpBtn = document.getElementById('change-pfp');
-const DEFAULT_AVATAR = "https://nekoweb.org/api/files/get?pathname=%2Fmedia%2FUpload-Icon-Logo-Transparent-Background.png&site=kaplumbagadeden";
+const DEFAULT_AVATAR = "avatar.png";
 
 async function getAvatarUrl(path) {
     if (!path) return DEFAULT_AVATAR;
     if (path.startsWith('http')) return path;
 
     const cleanPath = path.replace(/^\/+/, '');
-
-    console.log("Requesting signature for clean path:", cleanPath);
 
     const { data, error } = await supabaseClient.storage
         .from('avatars')
@@ -65,9 +63,7 @@ async function updateNavbar(user) {
 
         const { data: { user: freshUser } } = await supabaseClient.auth.getUser();
         const avatarPath = freshUser?.user_metadata?.avatar_url;
-        
-        console.log("Loading PFP from path:", avatarPath);
-        
+                
         const avatar = await getAvatarUrl(avatarPath);
         if (navAvatar) navAvatar.src = avatar;
     } else {
@@ -195,7 +191,6 @@ changePfpInput.onchange = async () => {
     const fileExt = file.name.split('.').pop();
     const fileName = `${user.id}/${Date.now()}.${fileExt}`;
 
-    console.log("1. Uploading file...");
     const { error: uploadErr } = await supabaseClient.storage.from('avatars').upload(fileName, file);
     if (uploadErr) {
         alert("Upload failed: " + uploadErr.message);
@@ -203,8 +198,6 @@ changePfpInput.onchange = async () => {
     }
 
     await new Promise(r => setTimeout(r, 500));
-
-    console.log("2. Forcing Metadata Update...");
     const { data: updateResult, error: updateErr } = await supabaseClient.auth.updateUser({
         data: { avatar_url: fileName }
     });
@@ -214,11 +207,8 @@ changePfpInput.onchange = async () => {
         return;
     }
 
-    console.log("3. Forcing Session Refresh...");
     const { data: refreshData } = await supabaseClient.auth.refreshSession();
     
-    console.log("New JSON from Server:", refreshData.user.user_metadata);
-
     await updateNavbar(refreshData.user);
     
     if (dropdown) dropdown.classList.add('hidden');
@@ -276,7 +266,7 @@ if (forgotPwBtn) {
         authError.textContent = "Sending reset link...";
         authError.style.color = "#64748b";
         const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
-            redirectTo: 'https://kaplumbagadeden.nekoweb.org/reset-password.html',
+            redirectTo: 'reset-password.html',
         });
         if (error) {
             authError.textContent = error.message;
@@ -287,4 +277,5 @@ if (forgotPwBtn) {
         }
     };
 }
+
 
