@@ -30,9 +30,13 @@
 
 
 ├── media/ # Hand-drawn character art & custom UI icons
+
 ├── auth.js # Supabase authentication & password recovery logic
+
 ├── script.js # Core search engine & API integration + Dark/Light mode toggle management
+
 ├── style.css # Custom translucent UI & responsive layouts
+
 └── index.html # Main application entry point
 
 
