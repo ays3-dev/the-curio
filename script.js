@@ -459,17 +459,17 @@ function getSourceIcon(source) {
     if (s.includes("wiki"))
         return `<img src="https://cdn.simpleicons.org/wikipedia/000000" width="16">`;
     if (s.includes("openlibrary"))
-        return `<img src="https://nekoweb.org/api/files/get?pathname=%2Fmedia%2Fopenlibrary.png&site=kaplumbagadeden" width="18" style="border-radius: 50%;">`;
+        return `<img src="openlibrary.png" width="18" style="border-radius: 50%;">`;
     if (s.includes("archive"))
         return `<img src="https://cdn.simpleicons.org/internetarchive/00ADEF" width="16">`;
     if (s.includes("nasa"))
         return `<img src="https://cdn.simpleicons.org/nasa/FC3D21" width="16">`;
     if (s.includes("history"))
-        return `<img src="https://cdn.simpleicons.org/historydotcom/ED1C24" width="16">`;
+        return `<img src="history.png" width="16">`;
     if (s.includes("animal"))
         return `<img src="https://cdn.simpleicons.org/paw/FF9900" width="16">`;
     if (s.includes("cia"))
-        return `<img src="https://nekoweb.org/api/files/get?pathname=%2Fmedia%2Fcia.png&site=kaplumbagadeden"  width="18" style="border-radius: 50%;">`;
+        return `<img src="cia.png"  width="18" style="border-radius: 50%;">`;
     if (s.includes("pubmed"))
         return `<img src="https://cdn.simpleicons.org/pubmed/339933" width="16">`;
 
@@ -696,3 +696,4 @@ darkToggle.addEventListener('click', () => {
     }
 
 });
+
