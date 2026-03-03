@@ -33,7 +33,9 @@
 
 ├── auth.js # Supabase authentication & password recovery logic
 
-├── script.js # Core search engine & API integration + Dark/Light mode toggle management
+├── script.js # Core search engine & API integration
+
+├── theme.js # Dark/Light mode toggle management
 
 ├── style.css # Custom translucent UI & responsive layouts
 
