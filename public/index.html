@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Curio</title>
+    <link rel="icon" type="image/x-icon" href="https://kaplumbagadeden.neocities.org/media/rabbit_light.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="master-container">
+    <header class="navbar">
+        <div class="logo">
+            <img src="https://kaplumbagadeden.neocities.org/media/rabbit_light.png" class="logo-icon">
+                <span class="logo-text">The Curio</span>
+        </div>
+<nav class="nav-links">      
+    <a href="about.html">About</a>
+
+    <div id="auth-buttons" class="auth-group">
+        <a href="#" id="login-btn">Login</a>
+        <button class="sign-up-btn" id="signup-btn">Sign Up</button>
+    </div>
+
+    <div id="user-menu" class="user-menu hidden">
+        <img id="nav-avatar" class="nav-avatar" src="" alt="User Avatar">
+        <div id="dropdown" class="dropdown hidden">
+            <div id="change-pfp">Change PFP</div>
+            <div id="dark-toggle">Dark Theme</div>
+            <div id="logout-btn">Log Out</div>
+            <div id="clean-history">Clean History</div>
+        </div>
+    </div>
+</nav>
+    </header>
+
+    <main class="hero">
+        <section class="hero-top">
+            <h1 class="main-gradient-text">Discover the facts nobody told you existed...<br>
+            Dive into the obscure, and the utterly fascinating.</h1>
+            
+<div class="search-container">
+    <div class="search-border-wrap">
+        <div class="search-bar">
+            <input id="search-input" type="text" placeholder="Search a fact...">
+                <button id="camera-btn" class="icon-btn" type="button">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20 5h-3.17l-1.84-2H8.99L7.15 5H4c-1.1 0-2 .9-2 2v12
+             c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-8
+             12c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8
+             c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+  </svg>
+    </button>
+    <input id="image-input" type="file" accept="image/*" capture="environment" style="display:none;">
+
+    <button id="search-icon" class="icon-btn" type="button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M15.5 14h-.79l-.28-.27a6.471 6.471 0 001.48-5.34C15.16 5.42 12.28 2.5 8.5 2.5S1.84 5.42 1.84 9.39 4.72 16.28 8.5 16.28c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zM8.5 14c-2.48 0-4.5-2.02-4.5-4.5S6.02 5 8.5 5 13 7.02 13 9.5 10.98 14 8.5 14z"/>
+        </svg>
+    </button>
+</div>
+        
+        <div id="image-drop-zone" class="image-drop-zone" style="display:none;">
+    Drag & Drop Image Here, Click Camera 📸, or Paste Image
+</div>
+</div>
+            <div id="recent-searches" class="recent-searches-dropdown hidden"></div>
+</div>
+
+<div id="rabbit-hole-map" class="rabbit-hole-map" style="display: none;">
+    <div class="center-bubble" id="center-bubble"></div>
+    <div id="floating-bubbles"></div>
+</div>
+
+<div id="did-you-know" class="did-you-know"></div>
+</div>
+
+<div id="fact-panel" class="fact-panel"></div>
+
+    <div class="tags">
+        <span class="tag">Medieval Pet Laws</span>
+        <span class="tag">The Bloop</span>
+        <span class="tag">Project MKUltra</span>
+        <span class="tag">The Emu War</span>
+        <span class="tag-plus">+</span>
+    </div>
+        </section>
+
+        <section class="info-section">
+            <div class="illustration-container">
+                <img src="https://kaplumbagadeden.neocities.org/media/rabbithole.png" alt="Illustration" class="ai-illustration">
+            </div>
+            <div class="info-content glow-shadow">
+                <h2 style="background: var(--full-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;">
+    We Dig So You Don’t Have To
+</h2>
+                <p>From dusty archives to forgotten corners of the internet, we unearth facts that will surprise, delight, or make you question everything. Search anything, and prepare to be amazed by the weird, rare, and wonderfully obscure.</p>
+            </div>
+        </section>
+    </main>
+    
+    <div id="auth-modal" class="auth-modal hidden">
+  <div class="auth-content">
+      <h2 id="auth-title">Sign Up</h2>
+      <div class="pfp-upload-container">
+    <img id="pfp-preview" src="https://nekoweb.org/api/files/get?pathname=%2Fmedia%2FUpload-Icon-Logo-Transparent-Background.png&site=kaplumbagadeden" alt="Profile Preview" class="pfp-preview">
+    <label for="pfp-input" class="pfp-label">Upload Profile Picture</label>
+    <input type="file" id="pfp-input" accept="image/*" style="display:none;">
+</div>
+      <input id="username-input" type="text" placeholder="E-mail">
+      <div class="password-container">
+    <input id="password-input" type="password" placeholder="Password">
+    <button type="button" class="toggle-pw" aria-label="Show/Hide Password">
+        <span class="eye-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                <line x1="1" y1="1" x2="23" y2="23"></line>
+            </svg>
+        </span>
+    </button>
+</div>
+
+<p id="forgot-pw-text" style="font-size: 0.8rem; font-weight: 600; text-align: right; margin-top: -10px; cursor: pointer; color: #64748b;">
+    Forgot Password?
+</p>
+
+      <button id="auth-submit">Submit</button>
+      <p id="auth-toggle-text">
+          Already have an account? <span id="toggle-auth">Log In</span>
+      </p>
+      <p id="auth-error" class="auth-error"></p>
+  </div>
+</div>
+
+<footer class="main-footer">
+    <div class="footer-left">
+        <p>© 2026 The Curio. All rights reserved.</p>
+    </div>
+    <div class="footer-right">
+        <a href="mailto:yaraysenaz@gmail.com" class="footer-link" title="Email Me">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </a>
+        <a href="https://github.com/ays3-dev" class="footer-link" title="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        </a>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	<script src="script.js"></script>
+	<script src="auth.js"></script>
+	<input type="file" id="change-pfp-input" accept="image/*" style="display:none;">
+	
+	</div>
+</body>
+</html>
