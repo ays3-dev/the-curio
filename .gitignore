@@ -1,0 +1,10 @@
+# Secret Keys
+.env
+
+# Dependencies (These are automatically rebuilt by running 'npm install') 
+node_modules/ 
+
+# OS/System temporary files 
+.DS_Store 
+Thumbs.db 
+*.log
