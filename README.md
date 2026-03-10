@@ -3,10 +3,8 @@
 **The Curio** is a hand-coded, high-fidelity search platform designed to bypass conventional search results in favor of obscure, rare, and “rabbit-hole” knowledge. It leverages AI (Google Gemini API) to restructure factual data into thematic clusters, encouraging deeper exploration of niche topics.
 
 <p align="center">
-  <img src="https://kaplumbagadeden.neocities.org/media/thecuriolight.png" alt="Screenshot of The Curio" width="600">
-</p>
- <p align="center">
-🌐 [**Live Demo**](https://thecurio.netlify.app/)
+  <img src="https://kaplumbagadeden.neocities.org/media/thecuriolight.png" alt="Screenshot of The Curio" width="600"><br>
+  🌐 <a href="https://thecurio.netlify.app/"><b>Live Demo</b></a>
 </p>
 
 ---
