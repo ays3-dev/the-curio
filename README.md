@@ -5,8 +5,9 @@
 <p align="center">
   <img src="https://kaplumbagadeden.neocities.org/media/thecuriolight.png" alt="Screenshot of The Curio" width="600">
 </p>
-
+ <p align="center">
 🌐 [**Live Demo**](https://thecurio.netlify.app/)
+</p>
 
 ---
 
@@ -87,6 +88,7 @@ npm start
 ├── server.js               # Express server entry point
 
 └── package.json            # Node.js dependencies & scripts
+
 ---
 
 ## 💡 How It Works
