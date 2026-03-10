@@ -46,8 +46,7 @@ cd the-curio
 npm install
 ```
 
-3. Environment Setup
-Create a .env file in the root directory to store server-side secrets:
+3. Create a .env file in the root directory to store server-side secrets:
 ```
 GEMINI_API_KEY=your_google_gemini_key
 PORT=3000
@@ -66,16 +65,27 @@ npm start
 ## **📂 Project Structure**
 
 ├── public/                 # Client-side assets (The "Face")
+
 │   ├── media/              # Character art & UI icons
+
 │   ├── auth.js             # Supabase Auth & PFP update logic
+
 │   ├── script.js           # Frontend engine & UI management
+
 │   ├── style.css           # Glassmorphism & responsive layouts
+
 │   └── index.html          # Main entry point
+
 ├── server/                 # Server-side logic (The "Brain")
+
 │   ├── ai.js               # Gemini API integration
+
 │   └── fetch.js            # External data synthesis logic
+
 ├── .env                    # Secure API keys (ignored by Git)
+
 ├── server.js               # Express server entry point
+
 └── package.json            # Node.js dependencies & scripts
 ---
 
